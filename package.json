@@ -25,6 +25,8 @@
         "webpack-hot-middleware": "^2.26.1"
     },
     "dependencies": {
-        "express": "^4.21.2"
+        "express": "^4.21.2",
+        "socket.io": "^4.8.1",
+        "socket.io-client": "^4.8.1"
     }
 }
