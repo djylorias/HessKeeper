@@ -1,1 +1,2 @@
-console.log("si ça marche je m'aime");
+import { io } from 'socket.io-client';
+const socket = io();

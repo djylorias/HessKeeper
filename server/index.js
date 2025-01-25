@@ -1,7 +1,7 @@
 import { env } from 'node:process';
 import express from 'express';
 import http from 'http';
-// import { Server as IOServer } from 'socket.io';
+import { Server as IOServer } from 'socket.io';
 import addWebpackMiddleware from './middlewares/addWebpackMiddleware.js';
 
 
@@ -31,6 +31,17 @@ const port = env.PORT == null ? 8000 : env.PORT;
 httpServer.listen(port, () => {
 	console.log(`Server running at http://localhost:${port}/`);
 })
+
+const io = new IOServer(httpServer);
+
+io.on('connection', socket => {
+	console.log(`Nouvelle connexion du client ${socket.id}`);
+
+	socket.on('disconnect', () => {
+		console.log(`Déconnexion du client ${socket.id}`);
+	})
+
+});
 
 addWebpackMiddleware(app);
 
