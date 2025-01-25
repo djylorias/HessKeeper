@@ -2,7 +2,7 @@ import { env } from 'node:process';
 import express from 'express';
 import http from 'http';
 // import { Server as IOServer } from 'socket.io';
-// import addWebpackMiddleware from './middlewares/addWebpackMiddleware.js';
+import addWebpackMiddleware from './middlewares/addWebpackMiddleware.js';
 
 
 // const GET_ALTERATION_REGULARITY_URL = "http://localhost:8080/alterationsRegularities"
@@ -32,7 +32,7 @@ httpServer.listen(port, () => {
 	console.log(`Server running at http://localhost:${port}/`);
 })
 
-// addWebpackMiddleware(app);
+addWebpackMiddleware(app);
 
 app.use(express.static('client/public'));
 
